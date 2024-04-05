@@ -3,12 +3,17 @@
 	import LinkList from './linkList.svelte';
 	import Header from './header.svelte';
 
-	let listPromise: Promise<ILinkItem[]> = getLinkList();
+	let linkList: ILinkItem[] = $state([]);
 
 	async function getLinkList() {
 		const res = await fetch('https:/xuxin-server.deno.dev/linkList');
-		return res.json();
+		const data = await res.json();
+		linkList = data;
 	}
+
+	$effect(() => {
+		getLinkList();
+	});
 </script>
 
 <svelte:head>
@@ -18,11 +23,7 @@
 <Header></Header>
 
 <section class="container">
-	{#await listPromise}
-		<p>加载中……</p>
-	{:then list}
-		<LinkList {list} />
-	{/await}
+	<LinkList list={linkList} />
 </section>
 
 <style>
