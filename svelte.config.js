@@ -1,4 +1,4 @@
-import adapter from 'svelte-adapter-deno';
+import adapter from 'sveltekit-adapter-deno';
 
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
