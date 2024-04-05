@@ -15,7 +15,7 @@
 		},
 		{
 			title: "更多",
-			path: "/more",
+			path: "/home",
 		},
 	]);
 </script>

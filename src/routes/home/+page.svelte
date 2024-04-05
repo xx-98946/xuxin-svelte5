@@ -1,12 +1,15 @@
 <script lang="ts">
-	import type { ILinkItem } from "$lib/types/linkList";
-	import LinkList from "./linkList.svelte";
-	import Header from "./header.svelte";
+	import type { ILinkItem } from '$lib/types/linkList';
+	import LinkList from './linkList.svelte';
+	import Header from './header.svelte';
 
 	let listPromise: Promise<ILinkItem[]> = getLinkList();
 
 	async function getLinkList() {
-		const res = await fetch("/api/linkList");
+		// 	target: 'https://xuxin.deno.dev/',
+		// const res = await fetch(' https://xuxin.deno.dev/api/linkList');
+		const res = await fetch('http://localhost:3000/data.json');
+		// http://localhost:3000/data.json
 		return res.json();
 	}
 </script>

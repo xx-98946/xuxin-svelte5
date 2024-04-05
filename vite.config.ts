@@ -5,11 +5,6 @@ export default defineConfig({
 	plugins: [sveltekit()],
 	server: {
 		proxy: {
-			'/api': {
-				target: 'https://xuxin.deno.dev/',
-				changeOrigin: true,
-				// rewrite: (path) => path.replace(/^\/api/, ''),
-			},
 		}
 	},
 	test: {
