@@ -1,23 +1,16 @@
 /**
  * 目录类型
  */
-export type ICategory =
-  | "计算机"
-  | "博客"
-  | "视频"
-  | "其他"
-  | "学习"
-  | "办公"
-  | "政府";
+export type ICategory = '计算机' | '博客' | '视频' | '其他' | '学习' | '办公' | '政府';
 
 /**
  * 链接项
  */
 export interface ILinkItem {
-  link: string;
-  icon: string;
-  title: string;
-  category: ICategory;
+	link: string;
+	icon: string;
+	title: string;
+	category: ICategory;
 }
 
 /**

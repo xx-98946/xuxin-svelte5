@@ -6,7 +6,7 @@
 	let listPromise: Promise<ILinkItem[]> = getLinkList();
 
 	async function getLinkList() {
-			// 	target: 'https://xuxin.deno.dev/',
+		// 	target: 'https://xuxin.deno.dev/',
 		const res = await fetch(' https://xuxin-server.deno.dev/linkList');
 		return res.json();
 	}

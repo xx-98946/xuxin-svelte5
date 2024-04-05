@@ -4,14 +4,14 @@
 		activeTab?: string;
 		list: string[];
 	}
-	let { list, activeTab = $bindable(""), style = "" }:Props = $props();
+	let { list, activeTab = $bindable(''), style = '' }: Props = $props();
 	// export let list: string[] = [];
 	// export let activeTab = "";
 	// export let style = "";
 
 	function toggleActiveTab(tabItem: string) {
 		if (activeTab == tabItem) {
-			activeTab = "";
+			activeTab = '';
 		} else {
 			activeTab = tabItem;
 		}
@@ -19,13 +19,13 @@
 </script>
 
 <section class="container" {style}>
-	{#each ["", ...list] as tabItem}
+	{#each ['', ...list] as tabItem}
 		<button
 			class="tab-item"
 			class:active={tabItem == activeTab}
 			on:click={() => toggleActiveTab(tabItem)}
 		>
-			{tabItem == "" ? "全部" : tabItem}
+			{tabItem == '' ? '全部' : tabItem}
 		</button>
 	{/each}
 </section>

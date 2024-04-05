@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Header from "./Header/index.svelte";
+	import Header from './Header/index.svelte';
 </script>
 
 <svelte:head>

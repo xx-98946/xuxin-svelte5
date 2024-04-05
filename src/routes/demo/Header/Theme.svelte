@@ -1,19 +1,18 @@
 <script lang="ts">
+	import { themeStore } from '$lib/stores/theme.svelte';
 	function toDark() {
-		document.body.classList.add("dark");
-		localStorage.setItem("theme", "dark");
+		themeStore.theme = 'dark';
 	}
 
 	function toLight() {
-		document.body.classList.remove("dark");
-		localStorage.setItem("theme", "light");
+		themeStore.theme = 'light';
 	}
 </script>
 
 <div>
-	<button on:click={toDark}>暗夜</button>
+	<button onclick={toDark}>暗夜</button>
 	<span>/</span>
-	<button on:click={toLight}>白昼</button>
+	<button onclick={toLight}>白昼</button>
 </div>
 
 <style lang="scss">

@@ -1,22 +1,22 @@
 <script lang="ts">
-	import SolidSrc from "$lib/images/svelte-logo.svg";
-	import Theme from "./Theme.svelte";
+	import SolidSrc from '$lib/images/svelte-logo.svg';
+	import Theme from './Theme.svelte';
 
 	interface Props {
 		className?: string;
 	}
 
-	const { className = "" }: Props = $props();
+	const { className = '' }: Props = $props();
 
 	const links = $state([
 		{
-			title: "测试",
-			path: "/demo",
+			title: '测试',
+			path: '/demo'
 		},
 		{
-			title: "更多",
-			path: "/home",
-		},
+			title: '更多',
+			path: '/home'
+		}
 	]);
 </script>
 

@@ -51,7 +51,7 @@
 	/>
 	<span>
 		{#each searchEngineList as { title, icon, path }}
-			<button class="search-btn" on:click={() => handleSearch(path)}>
+			<button class="search-btn" onclick={() => handleSearch(path)}>
 				<img src={icon} alt={title} class="search-img" />
 			</button>
 		{/each}
