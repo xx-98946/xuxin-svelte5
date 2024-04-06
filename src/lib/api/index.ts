@@ -1,11 +1,8 @@
-import axios from 'axios';
-import * as env from "$env/static/public";
+const baseURL = 'https://xuxin-server.deno.dev';
 
-console.log("??env", env)
+function api(input: string, init?: RequestInit | undefined) {
+    return fetch(baseURL + input, init);
+}
 
-const api = axios.create({
-    baseURL: 'https://xuxin-server.deno.dev',
-    timeout: 5000,
-});
 
 export default api;

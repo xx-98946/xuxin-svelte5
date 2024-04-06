@@ -8,8 +8,8 @@
 
 	async function getLinkList() {
 		// 	target: 'https://xuxin.deno.dev/',
-		const res = await api.get<ILinkItem[]>('/api/linkList');
-		return res.data;
+		const res = await api('/api/linkList');
+		return res.json();
 	}
 </script>
 
