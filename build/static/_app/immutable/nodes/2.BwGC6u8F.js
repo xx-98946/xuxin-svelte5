@@ -1,0 +1,1 @@
+import{a as t,t as r}from"../chunks/disclose-version.BHL-t9ee.js";import{u as s,p as f,a as n}from"../chunks/runtime.DVrlIcN3.js";var m={BASE_URL:"./",MODE:"production",DEV:!1,PROD:!0,SSR:!1},u=r('<p>page</p> <a href="/demo">测试页</a>',1);function l(a,e){n(e,!0),s(()=>{const p=m.API_URL;console.log(p)});var o=u();t(a,o),f()}export{l as component};
