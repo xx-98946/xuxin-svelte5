@@ -17,7 +17,7 @@
 	let modal: Modal;
 
 	let item: ILinkItem = $state({
-		link: '',
+		key: ['', ''],
 		icon: '',
 		title: '',
 		category: '计算机'
@@ -36,7 +36,7 @@
 
 <Tabs list={CategoryList} style="margin-bottom: 0.5em;margin-left: 1em;" bind:activeTab />
 <div class="link-list">
-	{#each computedList as item (item.link)}
+	{#each computedList as item (item.key[1])}
 		<LinkItem {item} />
 	{/each}
 

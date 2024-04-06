@@ -39,7 +39,7 @@
 </script>
 
 <a
-	href={item.link}
+	href={item.key[1]}
 	class="link-item"
 	class:active={searchContent$.value && isActive}
 	class:editable={editable$.value}
@@ -53,7 +53,7 @@
 		{item.title}
 	</span>
 
-	<span class="delete" onclick={(e) => deleteItem(e, item.link)}>×</span>
+	<span class="delete" onclick={(e) => deleteItem(e, item.key)}>×</span>
 </a>
 
 <style>

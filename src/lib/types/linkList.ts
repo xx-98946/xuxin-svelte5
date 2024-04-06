@@ -7,7 +7,7 @@ export type ICategory = '计算机' | '博客' | '视频' | '其他' | '学习' 
  * 链接项
  */
 export interface ILinkItem {
-	link: string;
+	key: string[]
 	icon: string;
 	title: string;
 	category: ICategory;
