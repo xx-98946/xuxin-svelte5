@@ -21,6 +21,10 @@ function useTheme() {
         setTheme(value == 'dark' ? 'light' : 'dark');
     }
 
+    function isDark(){
+        return value == 'dark';
+    }
+
     return {
         get theme() {
             return value;
@@ -28,7 +32,8 @@ function useTheme() {
         set theme(newValue: ITheme) {
             setTheme(newValue);
         },
-        toggleTheme
+        toggleTheme,
+        isDark
     };
 }
 

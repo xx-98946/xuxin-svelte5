@@ -1,34 +1,37 @@
 <script lang="ts">
-	import type { ILinkItem } from '$lib/types/linkList';
 	import LinkList from './linkList.svelte';
-	import Header from './header.svelte';
-	import api from '$lib/api';
-
-	let listPromise: Promise<ILinkItem[]> = getLinkList();
-
-	async function getLinkList() {
-		// 	target: 'https://xuxin.deno.dev/',
-		const res = await api('/api/linkList');
-		return res.json();
-	}
+	import Header from './Header/index.svelte';
 </script>
 
 <svelte:head>
-	<title>网址导航</title>
+	<title>徐鑫的网址导航</title>
 </svelte:head>
 
-<Header></Header>
+<main>
+	<Header className="header" />
+	<section class="content">
+		<LinkList />
+	</section>
+</main>
 
-<section class="container">
-	{#await listPromise}
-		<p>加载中……</p>
-	{:then list}
-		<LinkList {list} />
-	{/await}
-</section>
+<style lang="scss">
+	main {
+		height: 100vh;
+		width: 100vw;
+		overflow: hidden;
+	}
 
-<style>
-	.container {
-		padding: 0 1em;
+	main {
+		:global(.header) {
+			height: 4em;
+		}
+
+		.content {
+			color: #789;
+			margin-top: 0.5em;
+			height: calc(100vh - 4.5em);
+			overflow: auto;
+			padding: 0 60px;
+		}
 	}
 </style>

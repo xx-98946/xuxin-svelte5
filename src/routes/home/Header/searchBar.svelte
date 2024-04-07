@@ -64,15 +64,16 @@
 		align-items: center;
 		border: 1px solid #999;
 		border-radius: 1em;
+		overflow: hidden;
+		width: 100%;
+		padding: 0.5em;
 	}
 
 	.search-content {
-		/* border: 1px solid gray; */
-		border-radius: 1em;
-		padding: 0.25em;
-		padding-left: 1em;
+		padding: 0.25em 1em;
+		/* padding-left: 1em; */
 		font-size: 0.8em;
-		width: 40vw;
+		/* width: 40vw; */
 	}
 
 	.search-btn {

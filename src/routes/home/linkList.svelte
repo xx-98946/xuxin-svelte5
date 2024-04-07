@@ -1,18 +1,18 @@
 <script lang="ts">
-	import Tabs from '$lib/comps/tabs.svelte';
-	import Modal from '$lib/comps/modal.svelte';
+	import Tabs from './tabs.svelte';
+	import Modal from './modal.svelte';
 	import type { ILinkItem } from '$lib/types/linkList';
 	import LinkItem from './linkItem.svelte';
+	import { getLinkList } from '$lib/api/linkList';
 
-	interface Props {
-		list: ILinkItem[];
-	}
-	let { list }: Props = $props();
+	let listPromise = $state(getLinkList());
 	let activeTab = $state('计算机');
 
 	const CategoryList = ['计算机', '博客', '视频', '其他', '学习', '办公', '政府'];
 
-	let computedList = $derived(list.filter((item) => item.category.includes(activeTab)));
+	function filterList(list: ILinkItem[]) {
+		return list.filter((item) => item.category.includes(activeTab));
+	}
 
 	let modal: Modal;
 
@@ -22,6 +22,7 @@
 		title: '',
 		category: '计算机'
 	});
+
 	async function appendLinkItem() {
 		const res = await fetch('/api/linkList', {
 			method: 'POST',
@@ -34,22 +35,26 @@
 	}
 </script>
 
-<Tabs list={CategoryList} style="margin-bottom: 0.5em;margin-left: 1em;" bind:activeTab />
-<div class="link-list">
-	{#each computedList as item (item.key[1])}
-		<LinkItem {item} />
-	{/each}
+{#await listPromise}
+	<div>加载中 ……</div>
+{:then list}
+	<Tabs list={CategoryList} style="margin-bottom: 0.5em;margin-left: 1em;" bind:activeTab />
+	<div class="link-list">
+		{#each filterList(list) as item (item.key[1])}
+			<LinkItem {item} />
+		{/each}
 
-	<div>
-		<button class="append-btn" onclick={() => modal.open()}> + </button>
+		<div>
+			<button class="append-btn" onclick={() => modal.open()}> + </button>
+		</div>
 	</div>
-</div>
+{/await}
 
 <Modal bind:this={modal}>
 	<h2 style="font-size: 1.5em;">添加链接</h2>
 
 	<div class="form">
-		<label class="form-item">链接 <input bind:value={item.link} /></label>
+		<label class="form-item">链接 <input bind:value={item.key[1]} /></label>
 		<label class="form-item">图标 <input bind:value={item.icon} /></label>
 		<label class="form-item">标题 <input bind:value={item.title} /></label>
 		<label class="form-item">分类 <input bind:value={item.category} /></label>

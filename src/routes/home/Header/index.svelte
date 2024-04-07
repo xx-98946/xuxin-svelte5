@@ -1,6 +1,7 @@
 <script lang="ts">
 	import SolidSrc from '$lib/images/svelte-logo.svg';
 	import Theme from './Theme.svelte';
+	import SearchBar from './searchBar.svelte';
 
 	interface Props {
 		className?: string;
@@ -12,10 +13,6 @@
 		{
 			title: '测试',
 			path: '/demo'
-		},
-		{
-			title: '更多',
-			path: '/home'
 		}
 	]);
 </script>
@@ -27,7 +24,7 @@
 	</a>
 
 	<div class="center">
-		<input placeholder="搜索内容" />
+		<SearchBar />
 	</div>
 
 	<nav class="right">
@@ -64,10 +61,10 @@
 
 		.center {
 			margin: 0 2em;
-			border: 1px solid #ddd;
-			padding: 0.25em 2em;
-			font-size: 1em;
-			border-radius: 4em;
+			// border: 1px solid #ddd;
+			// padding: 0.25em 2em;
+			// font-size: 1em;
+			// border-radius: 4em;
 		}
 
 		.right {
